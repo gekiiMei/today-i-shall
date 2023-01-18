@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>today, i shall</title>
+    <style>
+        body {
+            background-color: black;
+            margin: 0;
+            padding: 0; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+        p {
+            font-size: 80px;
+            color: white;
+        }
+        #slides {
+            width: 15em;
+        }
+        .slide {
+            opacity: 0;
+            color: black;
+            background-color: white;
+            padding: 5px;
+            text-align: center;
+            border-radius: 5px;
+            position: absolute;
+            top: -5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p>today, i shall&nbsp;</p>
+        <div id="slides">
+            <p class="slide">cope</p>
+            <p class="slide">seethe</p>
+            <p class="slide">mald</p>
+            <p class="slide">cry</p>
+            <p class="slide">weep</p>
+            <p class="slide">whine</p>  
+            <p class="slide">die</p>
+        </div>
+    </div>
+<script>
+    let index = 0
+    var slides = document.getElementById("slides").getElementsByClassName("slide")
+    function showSlides(s, index) {
+        for (let i=0; i<s.length; ++i) {
+            s[i].style.opacity = "0"
+        }
+        if (index >= s.length) {
+            index = 0
+        }
+        s[index].style.opacity = "1"
+        index++
+        setTimeout(function(){showSlides(s, index)}, 100);
+    }
+    showSlides(slides, index)
+</script>
+</body>
+</html>
